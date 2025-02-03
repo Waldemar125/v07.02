@@ -1,0 +1,29 @@
+from turtle import *
+screensize(1500, 1500)
+tracer(2)
+n = 10
+left(90)
+down()
+for i in range(3):
+    forward(45 * n)
+    right(90)
+    forward(13 * n)
+    right(90)
+up()
+forward(2 * n)
+right(90)
+forward(4 * n)
+left(90)
+down()
+for i in range(4):
+    forward(76 * n)
+    right(90)
+    forward(72 * n)
+    right(90)
+tracer(100)
+up()
+for x in range(-100, 100):
+    for y in range(-100, 100):
+        goto(x * n, y * n)
+        dot(5, 'red')
+done()
