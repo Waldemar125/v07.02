@@ -10,7 +10,7 @@ for i in range(3):
     forward(13 * n)
     right(90)
 up()
-forward(2 * n)
+forward(-2 * n)
 right(90)
 forward(4 * n)
 left(90)
