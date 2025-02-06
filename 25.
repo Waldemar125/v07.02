@@ -1,0 +1,13 @@
+def p(n):
+    f = 0
+    for d in range(2, int(n ** 0.5) + 1):
+        if n % d == 0:
+            f = (n // d) - d
+            break
+    return f
+
+
+for n in range(1, 1533879):
+    f = p(n)
+    if f > 5000 and f % 1235 == 0:
+        print(n, f)
