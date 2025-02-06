@@ -3,7 +3,7 @@ ip = '111.194.0.0'
 mask = '255.254.0.0'
 net = ip_network(f'{ip}/{mask}', 0)
 k = 0
-for ip in net:
-    if (bin(int(ip))[2:].count('1') - bin(int(ip))[2:].count('0')) % 2 == 0:
+for ip in net.hosts():
+    if (bin(int(ip))[2:].count('1') - (bin(int(ip))[2:].count('0')) + len('0' * (32 - len(bin(int(ip))[2:])))) % 2 == 0:
         k += 1
 print(k)
