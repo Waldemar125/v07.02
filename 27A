@@ -1,0 +1,36 @@
+s = open('27_A.txt').readlines()
+s.pop(0)
+s = [(float(i.replace(',', '.').split()[0]), float(i.replace(',', '.').split()[1])) for i in s]
+K1, K2 = [], []
+for i in range(len(s)):
+    x, y = s[i][0], s[i][1]
+    if x > 0:
+        K1.append(s[i])
+    else:
+        K2.append(s[i])
+c1 = 0
+m1 = 10 ** 15
+for i in range(len(K1)):
+    x1, y1 = K1[i][0], K1[i][1]
+    sm = 0
+    for j in range(len(K1)):
+        x2, y2 = K1[j][0], K1[j][1]
+        sm += ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+    if sm < m1:
+        m1 = sm
+        c1 = K1[i]
+c2 = 0
+m2 = 10 ** 15
+for i in range(len(K2)):
+    x1, y1 = K2[i][0], K2[i][1]
+    sm = 0
+    for j in range(len(K2)):
+        x2, y2 = K2[j][0], K2[j][1]
+        sm += ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
+    if sm < m2:
+        m2 = sm
+        c2 = K2[i]
+print(c1, c2)
+px = (c1[0] + c2[0]) / 2 * 10000
+py = (c1[1] + c2[1]) / 2 * 10000
+print(px, py)
